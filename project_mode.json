@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "project_name": "ip-sticker-studio",
+  "project_mode": "software_app",
+  "mode_reason": "A web application that turns uploaded photos into reusable IP-style sticker and expression assets through a server-side Volcengine API adapter.",
+  "created_at": "2026-08-29 00:00:00 +08:00",
+  "created_by": "Codex",
+  "template_source": "workspace software_app rules",
+  "can_switch_mode": true,
+  "compatible_modes": ["data_automation", "research_report"],
+  "notes": "Static frontend plus Vercel serverless API. The source IP illustration Skill is referenced, not copied into this repository."
+}

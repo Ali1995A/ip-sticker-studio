@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f0e7" />
+    <title>萌粒工坊 · IP Sticker Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-mark">●</span><span>萌粒工坊</span><em>IP STICKER STUDIO</em></a>
+      <div class="status"><i></i> Volcengine Ark ready</div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR LITTLE UNIVERSE / 01</p>
+          <h1>把你，变成<br /><span>一套会说话的贴纸。</span></h1>
+          <p class="lede">上传一张照片，锁定你的角色锚点。然后让它替你开心、嘴硬、发疯，或者只是说一句：收到。</p>
+          <div class="hero-notes"><span>01 / 角色锚点</span><span>02 / 表情系列</span><span>03 / 一键出图</span></div>
+        </div>
+        <div class="hero-art" aria-label="萌粒角色示意图">
+          <div class="sun"></div><div class="scribble scribble-a">✳</div><div class="scribble scribble-b">〰</div>
+          <div class="doodle-person"><div class="hair"></div><div class="face"><span class="eye left"></span><span class="eye right"></span><span class="mouth">⌣</span></div><div class="body"></div><span class="arm arm-left"></span><span class="arm arm-right"></span></div>
+          <div class="hero-tag">made of<br /><b>tiny feelings</b></div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="step-label"><span>01</span><div><b>先上传你的角色</b><small>一张清晰的人像、宠物或原创角色都可以</small></div></div>
+        <div class="upload-grid">
+          <label class="upload-card" id="dropzone"><input id="file-input" type="file" accept="image/*" capture="environment" /><div id="upload-empty"><div class="upload-icon">↥</div><b>拖进来，或点击选择</b><span>支持 JPG / PNG · 建议正脸 + 全身</span></div><img id="preview" alt="已上传的角色预览" hidden /></label>
+          <div class="upload-side"><div class="tip-card"><span class="tip-number">A</span><div><b>身份是唯一的</b><p>发型、脸型、配饰和标志色，会在每一张贴纸里保持一致。</p></div></div><div class="tip-card"><span class="tip-number">B</span><div><b>萌粒笔触</b><p>轻微摇晃的黑色线条、干净色块，还有一点故意的“不完美”。</p></div></div></div>
+        </div>
+
+        <div class="step-label second"><span>02</span><div><b>选择你今天的情绪</b><small>先从一套通用反应开始，也可以写下你的主题</small></div></div>
+        <div class="modes"><button class="mode active" data-theme="日常聊天"><span>☻</span><b>日常聊天</b><small>12 个万能反应</small></button><button class="mode" data-theme="工作求生"><span>⌁</span><b>工作求生</b><small>开会、加班与已读</small></button><button class="mode" data-theme="自定义主题"><span>✎</span><b>自定义主题</b><small>写下你的专属语气</small></button></div>
+        <div class="custom-row"><input id="theme-input" type="text" placeholder="例如：我的猫猫日常、旅行打卡、健身打卡……" /><button id="generate-btn" class="generate">生成我的贴纸 <span>↗</span></button></div>
+        <div id="message" class="message" role="status"></div>
+      </section>
+
+      <section class="gallery-section"><div class="section-head"><div><p class="eyebrow">THE REACTION SHELF / 02</p><h2>你的情绪，值得<br /><i>被好好画下来。</i></h2></div><span class="count">12 / PACK</span></div><div id="gallery" class="gallery"><div class="gallery-placeholder"><span>✦</span><p>生成后，你的第一套表情会在这里出现。</p></div></div></section>
+    </main>
+    <footer><span>萌粒工坊 · A tiny studio for big feelings.</span><span>Built for your own IP, never a generic avatar.</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

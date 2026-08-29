@@ -1,0 +1,13 @@
+const fileInput = document.querySelector('#file-input');
+const preview = document.querySelector('#preview');
+const uploadEmpty = document.querySelector('#upload-empty');
+const dropzone = document.querySelector('#dropzone');
+const generateBtn = document.querySelector('#generate-btn');
+const message = document.querySelector('#message');
+const gallery = document.querySelector('#gallery');
+const themeInput = document.querySelector('#theme-input');
+let imageData = '';
+const setMessage = (text, type = '') => { message.textContent = text; message.className = `message ${type}`; };
+fileInput.addEventListener('change', () => { const file = fileInput.files?.[0]; if (!file) return; const reader = new FileReader(); reader.onload = () => { imageData = reader.result; preview.src = imageData; preview.hidden = false; uploadEmpty.hidden = true; dropzone.classList.add('has-image'); setMessage('角色参考已就位。现在挑一个情绪。', 'ok'); }; reader.readAsDataURL(file); });
+document.querySelectorAll('.mode').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.mode').forEach(item => item.classList.remove('active')); button.classList.add('active'); if (button.dataset.theme !== '自定义主题') themeInput.value = button.dataset.theme; else themeInput.focus(); }));
+generateBtn.addEventListener('click', async () => { if (!imageData) return setMessage('先上传一张角色参考图，再开始生成。', 'error'); const theme = themeInput.value.trim() || document.querySelector('.mode.active').dataset.theme; generateBtn.disabled = true; generateBtn.innerHTML = '正在画你的情绪 <span class="spin">◌</span>'; setMessage('正在建立角色锚点，并绘制 12 个独立反应……'); try { const response = await fetch('/api/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image: imageData, theme, count: 12 }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error || '生成失败'); gallery.innerHTML = ''; data.images.forEach((src, index) => { const figure = document.createElement('figure'); figure.className = 'sticker reveal'; figure.style.animationDelay = `${index * 60}ms`; figure.innerHTML = `<img src="${src.startsWith('data:') ? src : src}" alt="${theme} 表情 ${index + 1}" /><figcaption>${String(index + 1).padStart(2, '0')} / ${theme}</figcaption>`; gallery.appendChild(figure); }); setMessage('完成！你的第一套情绪贴纸已经出炉。', 'ok'); } catch (error) { setMessage(error.message, 'error'); } finally { generateBtn.disabled = false; generateBtn.innerHTML = '生成我的贴纸 <span>↗</span>'; } });
