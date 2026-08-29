@@ -17,7 +17,8 @@ Initial product scaffold created and pushed to GitHub: a mobile-friendly sticker
 
 - Completed: create local repository scaffold and core interaction flow.
 - Completed: GitHub remote `https://github.com/Ali1995A/ip-sticker-studio.git`, branch `main`.
-- Pending: configure Volcengine environment variables, authenticate Vercel, deploy, bind `sticker.idigits.app`, and run a real image generation smoke test.
+- Completed: Vercel production deployment, `sticker.idigits.app` binding, and ARK variables configured in production/preview/development.
+- Pending: run a real image generation smoke test with a user-supplied reference photo.
 
 ## Source and output
 
@@ -27,11 +28,8 @@ Initial product scaffold created and pushed to GitHub: a mobile-friendly sticker
 
 ## Exact next steps
 
-1. Set `ARK_API_KEY`, `ARK_MODEL`, and optional `ARK_BASE_URL` in Vercel.
-2. Authenticate Vercel and import the GitHub repository.
-3. Add custom domain `sticker.idigits.app` to the Vercel project, then create the required Cloudflare DNS record.
-4. Deploy with Vercel and test upload, camera permission, and generation.
-5. Confirm generated output quality against the Skill's identity and expression-pack validation rules.
+1. Upload a real reference photo at `https://sticker.idigits.app` and generate a test pack.
+2. Confirm generated output quality against the Skill's identity and expression-pack validation rules.
 
 ## Do not repeat
 
@@ -42,4 +40,5 @@ Initial product scaffold created and pushed to GitHub: a mobile-friendly sticker
 ## Update log
 
 - 2026-08-29: Initial app scaffold created.
-- 2026-08-29: Pushed `main` to GitHub; Vercel authentication and `sticker.idigits.app` binding remain pending.
+- 2026-08-29: Pushed `main` to GitHub; deployed Vercel production and bound `sticker.idigits.app` through Cloudflare DNS.
+- 2026-08-29: Replaced ARK variables in all Vercel environments using the user-specified Agent Plan image-generation configuration and redeployed.
