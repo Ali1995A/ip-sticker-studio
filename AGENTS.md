@@ -48,3 +48,4 @@ Initial product scaffold created and pushed to GitHub: a mobile-friendly sticker
 - 2026-08-29: Removed the separate local-history section; saved images now continue in newest-first order inside the main generated-image gallery.
 - 2026-08-29: Added the same-origin `api/image.js` image relay for local history saving, because Ark image URLs can display in an image tag but reject cross-origin browser downloads.
 - 2026-08-29: Added a custom `favicon.svg` and registered it in the page head.
+- 2026-08-29: Added `docs/retrospectives/2026-08-29-ip-sticker-studio.md`; project remains active until real generation, device history, and iPad WeChat checks pass.
