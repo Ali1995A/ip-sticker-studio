@@ -44,3 +44,5 @@ Initial product scaffold created and pushed to GitHub: a mobile-friendly sticker
 - 2026-08-29: Replaced ARK variables in all Vercel environments using the user-specified Agent Plan image-generation configuration and redeployed.
 - 2026-08-29: Diagnosed a production Vercel function timeout during a 2k generation request; reduced the one-sheet API output request to 1024×1024 for the 60-second serverless limit.
 - 2026-08-29: Ark rejected 1024×1024 because this model requires at least 3,686,400 pixels; corrected the sheet request to the minimum valid `1920x1920`.
+- 2026-08-29: Fixed local-history persistence transaction ordering and truthful save-status feedback; generated images are now written to IndexedDB before success is shown.
+- 2026-08-29: Removed the separate local-history section; saved images now continue in newest-first order inside the main generated-image gallery.
